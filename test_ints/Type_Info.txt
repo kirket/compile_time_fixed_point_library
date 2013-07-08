@@ -1,0 +1,259 @@
+************* Signed types ****************
+Same type 
+Type of sc_ft::sc_int<6> + sc_ft::sc_int<6> is sc_ft::sc_int<7>
+Type of sc_ft::sc_int<6> - sc_ft::sc_int<6> is sc_ft::sc_int<7>
+Type of sc_ft::sc_int<6> * sc_ft::sc_int<6> is sc_ft::sc_int<12>
+Type of sc_ft::sc_int<6> / sc_ft::sc_int<6> is sc_ft::sc_int<6>
+Type of sc_ft::sc_int<6> += sc_ft::sc_int<6> is sc_ft::sc_int<6>
+Type of sc_ft::sc_int<6> -= sc_ft::sc_int<6> is sc_ft::sc_int<6>
+Type of sc_ft::sc_int<6> *= sc_ft::sc_int<6> is sc_ft::sc_int<6>
+Type of sc_ft::sc_int<6> /= sc_ft::sc_int<6> is sc_ft::sc_int<6>
+
+Same type different sizes 
+Type of sc_ft::sc_int<6> + sc_ft::sc_int<5> is sc_ft::sc_int<7>
+Type of sc_ft::sc_int<5> + sc_ft::sc_int<6> is sc_ft::sc_int<7>
+Type of sc_ft::sc_int<6> - sc_ft::sc_int<5> is sc_ft::sc_int<7>
+Type of sc_ft::sc_int<5> - sc_ft::sc_int<6> is sc_ft::sc_int<7>
+Type of sc_ft::sc_int<5> * sc_ft::sc_int<6> is sc_ft::sc_int<11>
+Type of sc_ft::sc_int<6> * sc_ft::sc_int<5> is sc_ft::sc_int<11>
+Type of sc_ft::sc_int<5> / sc_ft::sc_int<6> is sc_ft::sc_int<5>
+Type of sc_ft::sc_int<6> / sc_ft::sc_int<5> is sc_ft::sc_int<6>
+Type of sc_ft::sc_int<6> /= sc_ft::sc_int<5> is sc_ft::sc_int<6>
+Type of sc_ft::sc_int<5> /= sc_ft::sc_int<6> is sc_ft::sc_int<5>
+Type of sc_ft::sc_int<6> += sc_ft::sc_int<5> is sc_ft::sc_int<6>
+Type of sc_ft::sc_int<5> += sc_ft::sc_int<6> is sc_ft::sc_int<5>
+Type of sc_ft::sc_int<6> -= sc_ft::sc_int<5> is sc_ft::sc_int<6>
+Type of sc_ft::sc_int<5> -= sc_ft::sc_int<6> is sc_ft::sc_int<5>
+Type of sc_ft::sc_int<5> *= sc_ft::sc_int<6> is sc_ft::sc_int<5>
+Type of sc_ft::sc_int<6> *= sc_ft::sc_int<5> is sc_ft::sc_int<6>
+
+Same type different sizes 
+Type of sc_ft::sc_int<6> | sc_ft::sc_int<5> is sc_ft::sc_int<6>
+Type of sc_ft::sc_int<5> | sc_ft::sc_int<6> is sc_ft::sc_int<6>
+Type of sc_ft::sc_int<6> & sc_ft::sc_int<5> is sc_ft::sc_int<6>
+Type of sc_ft::sc_int<5> & sc_ft::sc_int<6> is sc_ft::sc_int<6>
+Type of sc_ft::sc_int<5> ^ sc_ft::sc_int<6> is sc_ft::sc_int<6>
+Type of sc_ft::sc_int<6> ^ sc_ft::sc_int<5> is sc_ft::sc_int<6>
+Type of sc_ft::sc_int<6> |= sc_ft::sc_int<5> is sc_ft::sc_int<6>
+Type of sc_ft::sc_int<5> |= sc_ft::sc_int<6> is sc_ft::sc_int<5>
+Type of sc_ft::sc_int<6> &= sc_ft::sc_int<5> is sc_ft::sc_int<6>
+Type of sc_ft::sc_int<5> &= sc_ft::sc_int<6> is sc_ft::sc_int<5>
+Type of sc_ft::sc_int<5> ^= sc_ft::sc_int<6> is sc_ft::sc_int<5>
+Type of sc_ft::sc_int<6> ^= sc_ft::sc_int<5> is sc_ft::sc_int<6>
+
+Type of -(sc_ft::sc_int<6>) is  sc_ft::sc_int<7>
+Type of +(sc_ft::sc_int<6>) is  sc_ft::sc_int<6>
+
+Shifts with sc_ints 
+Type of "sc_ft::sc_int<6> >> (sc_ft::sc_int<3>) 1" is  sc_ft::sc_int<6>
+Type of "sc_ft::sc_int<6> >> (sc_ft::sc_int<6>) 8" is  sc_ft::sc_int<6>
+Type of "sc_ft::sc_int<6> >>= (sc_ft::sc_int<3>) 1" is  sc_ft::sc_int<6>
+Type of "sc_ft::sc_int<6> >>= (sc_ft::sc_int<6>) 8" is  sc_ft::sc_int<6>
+Type of "sc_ft::sc_int<6> << (sc_ft::sc_int<3>) 1" is  sc_ft::sc_int<9>
+Type of "sc_ft::sc_int<6> << (sc_ft::sc_int<6>) 8" is  sc_ft::sc_int<12>
+Type of "sc_ft::sc_int<6> <<= (sc_ft::sc_int<3>) 1" is  sc_ft::sc_int<6>
+Type of "sc_ft::sc_int<6> <<= (sc_ft::sc_int<6>) 8" is  sc_ft::sc_int<6>
+
+Shifts with ints 
+Type of "sc_ft::sc_int<6> >> (int) 1" is  sc_ft::sc_int<6>
+Type of "sc_ft::sc_int<6> >> (int) 8" is  sc_ft::sc_int<6>
+Type of "sc_ft::sc_int<6> >>= (int) 1" is  sc_ft::sc_int<6>
+Type of "sc_ft::sc_int<6> >>= (int) 8" is  sc_ft::sc_int<6>
+Type of "sc_ft::sc_int<6> << (int) 1" is  sc_ft::sc_int<6>
+Type of "sc_ft::sc_int<6> << (int) 8" is  sc_ft::sc_int<6>
+Type of "sc_ft::sc_int<6> <<= (int) 1" is  sc_ft::sc_int<6>
+Type of "sc_ft::sc_int<6> <<= (int) 8" is  sc_ft::sc_int<6>
+
+
+************* Unsigned types ****************
+Same type 
+Type of sc_ft::sc_uint<6> + sc_ft::sc_uint<6> is sc_ft::sc_uint<7>
+Type of sc_ft::sc_uint<6> - sc_ft::sc_uint<6> is sc_ft::sc_uint<7>
+Type of sc_ft::sc_uint<6> * sc_ft::sc_uint<6> is sc_ft::sc_uint<12>
+Type of sc_ft::sc_uint<6> / sc_ft::sc_uint<6> is sc_ft::sc_uint<6>
+Type of sc_ft::sc_uint<6> += sc_ft::sc_uint<6> is sc_ft::sc_uint<6>
+Type of sc_ft::sc_uint<6> -= sc_ft::sc_uint<6> is sc_ft::sc_uint<6>
+Type of sc_ft::sc_uint<6> *= sc_ft::sc_uint<6> is sc_ft::sc_uint<6>
+Type of sc_ft::sc_uint<6> /= sc_ft::sc_uint<6> is sc_ft::sc_uint<6>
+
+Same type different sizes 
+Type of sc_ft::sc_uint<6> + sc_ft::sc_uint<5> is sc_ft::sc_uint<7>
+Type of sc_ft::sc_uint<6> - sc_ft::sc_uint<5> is sc_ft::sc_uint<7>
+Type of sc_ft::sc_uint<6> * sc_ft::sc_uint<5> is sc_ft::sc_uint<11>
+Type of sc_ft::sc_uint<6> / sc_ft::sc_uint<5> is sc_ft::sc_uint<6>
+Type of sc_ft::sc_uint<6> += sc_ft::sc_uint<5> is sc_ft::sc_uint<6>
+Type of sc_ft::sc_uint<6> -= sc_ft::sc_uint<5> is sc_ft::sc_uint<6>
+Type of sc_ft::sc_uint<6> *= sc_ft::sc_uint<5> is sc_ft::sc_uint<6>
+Type of sc_ft::sc_uint<6> /= sc_ft::sc_uint<5> is sc_ft::sc_uint<6>
+
+Same type different sizes 
+Type of sc_ft::sc_uint<6> | sc_ft::sc_uint<5> is sc_ft::sc_uint<6>
+Type of sc_ft::sc_uint<5> | sc_ft::sc_uint<6> is sc_ft::sc_uint<6>
+Type of sc_ft::sc_uint<6> & sc_ft::sc_uint<5> is sc_ft::sc_uint<6>
+Type of sc_ft::sc_uint<5> & sc_ft::sc_uint<6> is sc_ft::sc_uint<6>
+Type of sc_ft::sc_uint<5> ^ sc_ft::sc_uint<6> is sc_ft::sc_uint<6>
+Type of sc_ft::sc_uint<6> ^ sc_ft::sc_uint<5> is sc_ft::sc_uint<6>
+Type of sc_ft::sc_uint<6> |= sc_ft::sc_uint<5> is sc_ft::sc_uint<6>
+Type of sc_ft::sc_uint<5> |= sc_ft::sc_uint<6> is sc_ft::sc_uint<5>
+Type of sc_ft::sc_uint<6> &= sc_ft::sc_uint<5> is sc_ft::sc_uint<6>
+Type of sc_ft::sc_uint<5> &= sc_ft::sc_uint<6> is sc_ft::sc_uint<5>
+Type of sc_ft::sc_uint<5> ^= sc_ft::sc_uint<6> is sc_ft::sc_uint<5>
+Type of sc_ft::sc_uint<6> ^= sc_ft::sc_uint<5> is sc_ft::sc_uint<6>
+
+Type of -(sc_ft::sc_uint<6>) is  sc_ft::sc_uint<7>
+Type of +(sc_ft::sc_uint<6>) is  sc_ft::sc_uint<6>
+
+Shifts with sc_uints 
+Type of "sc_ft::sc_uint<6> >> (sc_ft::sc_uint<3>) 1" is  sc_ft::sc_uint<6>
+Type of "sc_ft::sc_uint<6> >> (sc_ft::sc_uint<6>) 8" is  sc_ft::sc_uint<6>
+Type of "sc_ft::sc_uint<6> >>= (sc_ft::sc_uint<3>) 1" is  sc_ft::sc_uint<6>
+Type of "sc_ft::sc_uint<6> >>= (sc_ft::sc_uint<6>) 8" is  sc_ft::sc_uint<6>
+Type of "sc_ft::sc_uint<6> << (sc_ft::sc_uint<3>) 1" is  sc_ft::sc_uint<9>
+Type of "sc_ft::sc_uint<6> << (sc_ft::sc_uint<6>) 8" is  sc_ft::sc_uint<12>
+Type of "sc_ft::sc_uint<6> <<= (sc_ft::sc_uint<3>) 1" is  sc_ft::sc_uint<6>
+Type of "sc_ft::sc_uint<6> <<= (sc_ft::sc_uint<6>) 8" is  sc_ft::sc_uint<6>
+
+Shifts with ints 
+Type of "sc_ft::sc_uint<6> >> (int) 1" is  sc_ft::sc_uint<6>
+Type of "sc_ft::sc_uint<6> >> (int) 8" is  sc_ft::sc_uint<6>
+Type of "sc_ft::sc_uint<6> >>= (int) 1" is  sc_ft::sc_uint<6>
+Type of "sc_ft::sc_uint<6> >>= (int) 8" is  sc_ft::sc_uint<6>
+Type of "sc_ft::sc_uint<6> << (int) 1" is  sc_ft::sc_uint<6>
+Type of "sc_ft::sc_uint<6> << (int) 8" is  sc_ft::sc_uint<6>
+Type of "sc_ft::sc_uint<6> <<= (int) 1" is  sc_ft::sc_uint<6>
+Type of "sc_ft::sc_uint<6> <<= (int) 8" is  sc_ft::sc_uint<6>
+
+************* Mixing Signed & Unsigned types ****************
+Same size signed + unsigned
+Type of sc_ft::sc_int<6> + sc_ft::sc_uint<6> is sc_ft::sc_int<8>
+Type of sc_ft::sc_int<6> - sc_ft::sc_uint<6> is sc_ft::sc_int<8>
+Type of sc_ft::sc_int<6> * sc_ft::sc_uint<6> is sc_ft::sc_int<12>
+Type of sc_ft::sc_int<6> / sc_ft::sc_uint<6> is sc_ft::sc_int<12>
+Type of sc_ft::sc_int<6> += sc_ft::sc_uint<6> is sc_ft::sc_int<6>
+Type of sc_ft::sc_int<6> -= sc_ft::sc_uint<6> is sc_ft::sc_int<6>
+Type of sc_ft::sc_int<6> *= sc_ft::sc_uint<6> is sc_ft::sc_int<6>
+Type of sc_ft::sc_int<6> /= sc_ft::sc_uint<6> is sc_ft::sc_int<6>
+
+Different type different sizes 
+Type of sc_ft::sc_int<6> + sc_ft::sc_uint<5> is sc_ft::sc_int<7>
+Type of sc_ft::sc_uint<5> + sc_ft::sc_int<6> is sc_ft::sc_int<7>
+Type of sc_ft::sc_int<6> - sc_ft::sc_uint<5> is sc_ft::sc_int<7>
+Type of sc_ft::sc_uint<5> - sc_ft::sc_int<6> is sc_ft::sc_int<7>
+Type of sc_ft::sc_uint<5> * sc_ft::sc_int<6> is sc_ft::sc_int<11>
+Type of sc_ft::sc_int<6> * sc_ft::sc_uint<5> is sc_ft::sc_int<11>
+Type of sc_ft::sc_uint<5> / sc_ft::sc_int<6> is sc_ft::sc_int<11>
+Type of sc_ft::sc_int<6> / sc_ft::sc_uint<5> is sc_ft::sc_int<11>
+Type of sc_ft::sc_int<6> /= sc_ft::sc_uint<5> is sc_ft::sc_int<6>
+Type of sc_ft::sc_uint<5> /= sc_ft::sc_int<6> is sc_ft::sc_uint<5>
+Type of sc_ft::sc_int<6> += sc_ft::sc_uint<5> is sc_ft::sc_int<6>
+Type of sc_ft::sc_uint<5> += sc_ft::sc_int<6> is sc_ft::sc_uint<5>
+Type of sc_ft::sc_int<6> -= sc_ft::sc_uint<5> is sc_ft::sc_int<6>
+Type of sc_ft::sc_uint<5> -= sc_ft::sc_int<6> is sc_ft::sc_uint<5>
+Type of sc_ft::sc_uint<5> *= sc_ft::sc_int<6> is sc_ft::sc_uint<5>
+Type of sc_ft::sc_int<6> *= sc_ft::sc_uint<5> is sc_ft::sc_int<6>
+
+Different type different sizes 
+Type of sc_ft::sc_int<6> | sc_ft::sc_uint<5> is sc_ft::sc_int<6>
+Type of sc_ft::sc_uint<5> | sc_ft::sc_int<6> is sc_ft::sc_int<6>
+Type of sc_ft::sc_int<6> & sc_ft::sc_uint<5> is sc_ft::sc_int<6>
+Type of sc_ft::sc_uint<5> & sc_ft::sc_int<6> is sc_ft::sc_int<6>
+Type of sc_ft::sc_uint<5> ^ sc_ft::sc_int<6> is sc_ft::sc_int<6>
+Type of sc_ft::sc_int<6> ^ sc_ft::sc_uint<5> is sc_ft::sc_int<6>
+Type of sc_ft::sc_int<6> |= sc_ft::sc_uint<5> is sc_ft::sc_int<6>
+Type of sc_ft::sc_uint<5> |= sc_ft::sc_int<6> is sc_ft::sc_uint<5>
+Type of sc_ft::sc_int<6> &= sc_ft::sc_uint<5> is sc_ft::sc_int<6>
+Type of sc_ft::sc_uint<5> &= sc_ft::sc_int<6> is sc_ft::sc_uint<5>
+Type of sc_ft::sc_uint<5> ^= sc_ft::sc_int<6> is sc_ft::sc_uint<5>
+Type of sc_ft::sc_int<6> ^= sc_ft::sc_uint<5> is sc_ft::sc_int<6>
+
+************* Unsigned types ****************
+Same size signed + unsigned 
+Type of sc_ft::sc_uint<6> + sc_ft::sc_int<6> is sc_ft::sc_int<8>
+Type of sc_ft::sc_uint<6> - sc_ft::sc_int<6> is sc_ft::sc_int<8>
+Type of sc_ft::sc_uint<6> * sc_ft::sc_int<6> is sc_ft::sc_int<12>
+Type of sc_ft::sc_uint<6> / sc_ft::sc_int<6> is sc_ft::sc_int<12>
+Type of sc_ft::sc_uint<6> += sc_ft::sc_int<6> is sc_ft::sc_uint<6>
+Type of sc_ft::sc_uint<6> -= sc_ft::sc_int<6> is sc_ft::sc_uint<6>
+Type of sc_ft::sc_uint<6> *= sc_ft::sc_int<6> is sc_ft::sc_uint<6>
+Type of sc_ft::sc_uint<6> /= sc_ft::sc_int<6> is sc_ft::sc_uint<6>
+
+Different type different sizes 
+Type of sc_ft::sc_uint<6> + sc_ft::sc_int<5> is sc_ft::sc_int<8>
+Type of sc_ft::sc_uint<6> - sc_ft::sc_int<5> is sc_ft::sc_int<8>
+Type of sc_ft::sc_uint<6> * sc_ft::sc_int<5> is sc_ft::sc_int<11>
+Type of sc_ft::sc_uint<6> / sc_ft::sc_int<5> is sc_ft::sc_int<11>
+Type of sc_ft::sc_uint<6> += sc_ft::sc_int<5> is sc_ft::sc_uint<6>
+Type of sc_ft::sc_uint<6> -= sc_ft::sc_int<5> is sc_ft::sc_uint<6>
+Type of sc_ft::sc_uint<6> *= sc_ft::sc_int<5> is sc_ft::sc_uint<6>
+Type of sc_ft::sc_uint<6> /= sc_ft::sc_int<5> is sc_ft::sc_uint<6>
+
+Different type different sizes 
+Type of sc_ft::sc_uint<6> | sc_ft::sc_int<5> is sc_ft::sc_int<6>
+Type of sc_ft::sc_int<5> | sc_ft::sc_uint<6> is sc_ft::sc_int<6>
+Type of sc_ft::sc_uint<6> & sc_ft::sc_int<5> is sc_ft::sc_int<6>
+Type of sc_ft::sc_int<5> & sc_ft::sc_uint<6> is sc_ft::sc_int<6>
+Type of sc_ft::sc_int<5> ^ sc_ft::sc_uint<6> is sc_ft::sc_int<6>
+Type of sc_ft::sc_uint<6> ^ sc_ft::sc_int<5> is sc_ft::sc_int<6>
+Type of sc_ft::sc_uint<6> |= sc_ft::sc_int<5> is sc_ft::sc_uint<6>
+Type of sc_ft::sc_int<5> |= sc_ft::sc_uint<6> is sc_ft::sc_int<5>
+Type of sc_ft::sc_uint<6> &= sc_ft::sc_int<5> is sc_ft::sc_uint<6>
+Type of sc_ft::sc_int<5> &= sc_ft::sc_uint<6> is sc_ft::sc_int<5>
+Type of sc_ft::sc_int<5> ^= sc_ft::sc_uint<6> is sc_ft::sc_int<5>
+Type of sc_ft::sc_uint<6> ^= sc_ft::sc_int<5> is sc_ft::sc_uint<6>
+
+************* Mixing Signed with double ****************
+Type of sc_ft::sc_int<6>+double is double
+Type of double+sc_ft::sc_int<6> is double
+Type of sc_ft::sc_int<6>-double is double
+Type of double-sc_ft::sc_int<6> is double
+Type of double*sc_ft::sc_int<6> is double
+Type of sc_ft::sc_int<6>*double is double
+Type of double/sc_ft::sc_int<6> is double
+Type of sc_ft::sc_int<6>/double is double
+Type of sc_ft::sc_int<6> /= double is sc_ft::sc_int<6>
+Type of double/=sc_ft::sc_int<6> is double
+Type of sc_ft::sc_int<6> += double is sc_ft::sc_int<6>
+Type of double+=sc_ft::sc_int<6> is double
+Type of sc_ft::sc_int<6> -= double is sc_ft::sc_int<6>
+Type of double-=sc_ft::sc_int<6> is double
+Type of double*=sc_ft::sc_int<6> is double
+Type of sc_ft::sc_int<6> *= double is sc_ft::sc_int<6>
+
+Shifts with doubles 
+Type of "sc_ft::sc_int<6> >> (double) 1" is  sc_ft::sc_int<6>
+Type of "sc_ft::sc_int<6> >> (double) 8" is  sc_ft::sc_int<6>
+Type of "sc_ft::sc_int<6> >>= (double) 1" is  sc_ft::sc_int<6>
+Type of "sc_ft::sc_int<6> >>= (double) 8" is  sc_ft::sc_int<6>
+Type of "sc_ft::sc_int<6> << (double) 1" is  sc_ft::sc_int<6>
+Type of "sc_ft::sc_int<6> << (double) 8" is  sc_ft::sc_int<6>
+Type of "sc_ft::sc_int<6> <<= (double) 1" is  sc_ft::sc_int<6>
+Type of "sc_ft::sc_int<6> <<= (double) 8" is  sc_ft::sc_int<6>
+
+************* Mixing Unsigned with double ****************
+Type of sc_ft::sc_uint<6>+double is double
+Type of double+sc_ft::sc_uint<6> is double
+Type of sc_ft::sc_uint<6>-double is double
+Type of double-sc_ft::sc_uint<6> is double
+Type of double*sc_ft::sc_uint<6> is double
+Type of sc_ft::sc_uint<6>*double is double
+Type of double/sc_ft::sc_uint<6> is double
+Type of sc_ft::sc_uint<6>/double is double
+Type of sc_ft::sc_uint<6> /= double is sc_ft::sc_uint<6>
+Type of double/=sc_ft::sc_uint<6> is double
+Type of sc_ft::sc_uint<6> += double is sc_ft::sc_uint<6>
+Type of double+=sc_ft::sc_uint<6> is double
+Type of sc_ft::sc_uint<6> -= double is sc_ft::sc_uint<6>
+Type of double-=sc_ft::sc_uint<6> is double
+Type of double*=sc_ft::sc_uint<6> is double
+Type of sc_ft::sc_uint<6> *= double is sc_ft::sc_uint<6>
+
+Shifts with doubles 
+Type of "sc_ft::sc_uint<6> >> (double) 1" is  sc_ft::sc_uint<6>
+Type of "sc_ft::sc_uint<6> >> (double) 8" is  sc_ft::sc_uint<6>
+Type of "sc_ft::sc_uint<6> >>= (double) 1" is  sc_ft::sc_uint<6>
+Type of "sc_ft::sc_uint<6> >>= (double) 8" is  sc_ft::sc_uint<6>
+Type of "sc_ft::sc_uint<6> << (double) 1" is  sc_ft::sc_uint<6>
+Type of "sc_ft::sc_uint<6> << (double) 8" is  sc_ft::sc_uint<6>
+Type of "sc_ft::sc_uint<6> <<= (double) 1" is  sc_ft::sc_uint<6>
+Type of "sc_ft::sc_uint<6> <<= (double) 8" is  sc_ft::sc_uint<6>
+
