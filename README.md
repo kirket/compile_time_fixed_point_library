@@ -24,4 +24,4 @@ These types will exist in the namespace sc_ft and will be able to co-exist with 
 files do not contain lines such as "using namespace sc_dt;"
 
 
-
+To see the fixed-point type semantics for the integer types, please look at file test_ints/Type_Info.txt
