@@ -24,9 +24,15 @@
 /// SystemC namespace for compile-time fixed point types: sc_fixed,sc_ufixed,sc_int,sc_uint
 namespace sc_ft {
 
-	/// Template function to use in Compile-time Template Parameters : Absolute Value
-	inline int ABS_FUNC(int a) { return(((a)<0) ? (-a) : (a) ); }
-	
+	/// Template functions to use in Compile-time Template Parameters : Absolute Value
+	template <int A_> struct Abs_Func { enum { val = (A_ < 0) ? -A_ : A_ };	};
+	/// Max compile time calculation
+	template <int A_, int B_> struct Template_Max { enum { maxval = (A_ > B_) ? A_ : B_ };	};
+	/// Max Total Bits for sc_fixed based on Max of two different sc_fixed 
+	template <int T_, int I_, int T1_, int I1_>
+        struct Template_Max_Total_Bits { 
+			enum { maxval = Template_Max<T_-I_,T1_-I1_>::maxval + Template_Max<I_,I1_>::maxval };
+		};
 	
 #if __cplusplus < 201103L
 	/// Compile-time assert class to use for when more than 64 bits used!
@@ -35,11 +41,6 @@ namespace sc_ft {
 	template<> struct CompileAssert<false>  {}; // fail on false.
 #endif
 
-	template <int A_, int B_> struct Template_Max { enum { maxval = (A_ > B_) ? A_ : B_ };	};
-	template <int T_, int I_, int T1_, int I1_>
-        struct Template_Max_Total_Bits { 
-			enum { maxval = Template_Max<T_-I_,T1_-I1_>::maxval + Template_Max<I_,I1_>::maxval };
-		};
 
 	/// Use Template parameter to select int type, default is error, should go to one of the specializations below
 	template <int S_> struct int_type_size { 
