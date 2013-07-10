@@ -35,7 +35,12 @@ namespace sc_ft {
 	template<> struct CompileAssert<false>  {}; // fail on false.
 #endif
 
-	
+	template <int A_, int B_> struct Template_Max { enum { maxval = (A_ > B_) ? A_ : B_ };	};
+	template <int T_, int I_, int T1_, int I1_>
+        struct Template_Max_Total_Bits { 
+			enum { maxval = Template_Max<T_-I_,T1_-I1_>::maxval + Template_Max<I_,I1_>::maxval };
+		};
+
 	/// Use Template parameter to select int type, default is error, should go to one of the specializations below
 	template <int S_> struct int_type_size { 
 		/// will generate compiler error
