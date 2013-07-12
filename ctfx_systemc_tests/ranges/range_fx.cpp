@@ -45,15 +45,12 @@
 
 #include <limits.h>
 #include <iostream>
-#include <sc_fixed.h>
-#include <sc_ufixed.h>
-#include <sc_mixed_functions.h>
+
+// Include sc_ft namespace
+#include <sc_ft.h>
 
 using namespace std;
 
-//#define T_FX_FLOAT  sc_fxval
-//#define T_FX_UFIX   sc_ufix
-//#define T_FX_FIX    sc_fix
 #define T_FX_FIXED  sc_ft::sc_fixed<22,11>
 #define T_FX_UFIXED sc_ft::sc_ufixed<22,11>
 
@@ -116,27 +113,18 @@ using namespace std;
 
 static void range_to_min(ostream& out)
 {
-  //  RANGE_TO_MIN(T_FX_FLOAT);
-  //  RANGE_TO_MIN(T_FX_UFIX);
-  //  RANGE_TO_MIN(T_FX_FIX);
   RANGE_TO_MIN(T_FX_FIXED);
   RANGE_TO_MIN(T_FX_UFIXED);
 }
 
 static void range_to_max(ostream& out)
 {
-  //  RANGE_TO_MAX(T_FX_FLOAT);
-  //  RANGE_TO_MAX(T_FX_UFIX);
-  //  RANGE_TO_MAX(T_FX_FIX);
   RANGE_TO_MAX(T_FX_FIXED);
   RANGE_TO_MAX(T_FX_UFIXED);
 }
 
 static void range_min_max(ostream& out)
 {
-  //  RANGE_MIN_MAX(T_FX_FLOAT);
-  //  RANGE_MIN_MAX(T_FX_UFIX);
-  //  RANGE_MIN_MAX(T_FX_FIX);
   RANGE_MIN_MAX(T_FX_FIXED);
   RANGE_MIN_MAX(T_FX_UFIXED);
 }
