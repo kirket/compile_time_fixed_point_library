@@ -45,14 +45,14 @@ Type of -(sc_ft::sc_int<6>) is  sc_ft::sc_int<7>
 Type of +(sc_ft::sc_int<6>) is  sc_ft::sc_int<6>
 
 Shifts with sc_ints 
-Type of "sc_ft::sc_int<6> >> (sc_ft::sc_int<3>) 1" is  sc_ft::sc_int<6>
-Type of "sc_ft::sc_int<6> >> (sc_ft::sc_int<6>) 8" is  sc_ft::sc_int<6>
-Type of "sc_ft::sc_int<6> >>= (sc_ft::sc_int<3>) 1" is  sc_ft::sc_int<6>
-Type of "sc_ft::sc_int<6> >>= (sc_ft::sc_int<6>) 8" is  sc_ft::sc_int<6>
-Type of "sc_ft::sc_int<6> << (sc_ft::sc_int<3>) 1" is  sc_ft::sc_int<9>
-Type of "sc_ft::sc_int<6> << (sc_ft::sc_int<6>) 8" is  sc_ft::sc_int<12>
-Type of "sc_ft::sc_int<6> <<= (sc_ft::sc_int<3>) 1" is  sc_ft::sc_int<6>
-Type of "sc_ft::sc_int<6> <<= (sc_ft::sc_int<6>) 8" is  sc_ft::sc_int<6>
+Type of "sc_ft::sc_int<6> >> (sc_ft::sc_int<2>) 1" is  sc_ft::sc_int<6>
+Type of "sc_ft::sc_int<6> >> (sc_ft::sc_int<4>) 3" is  sc_ft::sc_int<6>
+Type of "sc_ft::sc_int<6> >>= (sc_ft::sc_int<2>) 1" is  sc_ft::sc_int<6>
+Type of "sc_ft::sc_int<6> >>= (sc_ft::sc_int<4>) 3" is  sc_ft::sc_int<6>
+Type of "sc_ft::sc_int<6> << (sc_ft::sc_int<2>) 1" is  sc_ft::sc_int<9>
+Type of "sc_ft::sc_int<6> << (sc_ft::sc_int<4>) 3" is  sc_ft::sc_int<21>
+Type of "sc_ft::sc_int<6> <<= (sc_ft::sc_int<2>) 1" is  sc_ft::sc_int<6>
+Type of "sc_ft::sc_int<6> <<= (sc_ft::sc_int<4>) 3" is  sc_ft::sc_int<6>
 
 Shifts with ints 
 Type of "sc_ft::sc_int<6> >> (int) 1" is  sc_ft::sc_int<6>
@@ -104,14 +104,14 @@ Type of -(sc_ft::sc_uint<6>) is  sc_ft::sc_uint<7>
 Type of +(sc_ft::sc_uint<6>) is  sc_ft::sc_uint<6>
 
 Shifts with sc_uints 
-Type of "sc_ft::sc_uint<6> >> (sc_ft::sc_uint<3>) 1" is  sc_ft::sc_uint<6>
-Type of "sc_ft::sc_uint<6> >> (sc_ft::sc_uint<6>) 8" is  sc_ft::sc_uint<6>
-Type of "sc_ft::sc_uint<6> >>= (sc_ft::sc_uint<3>) 1" is  sc_ft::sc_uint<6>
-Type of "sc_ft::sc_uint<6> >>= (sc_ft::sc_uint<6>) 8" is  sc_ft::sc_uint<6>
-Type of "sc_ft::sc_uint<6> << (sc_ft::sc_uint<3>) 1" is  sc_ft::sc_uint<9>
-Type of "sc_ft::sc_uint<6> << (sc_ft::sc_uint<6>) 8" is  sc_ft::sc_uint<12>
-Type of "sc_ft::sc_uint<6> <<= (sc_ft::sc_uint<3>) 1" is  sc_ft::sc_uint<6>
-Type of "sc_ft::sc_uint<6> <<= (sc_ft::sc_uint<6>) 8" is  sc_ft::sc_uint<6>
+Type of "sc_ft::sc_uint<6> >> (sc_ft::sc_uint<2>) 1" is  sc_ft::sc_uint<6>
+Type of "sc_ft::sc_uint<6> >> (sc_ft::sc_uint<4>) 3" is  sc_ft::sc_uint<6>
+Type of "sc_ft::sc_uint<6> >>= (sc_ft::sc_uint<2>) 1" is  sc_ft::sc_uint<6>
+Type of "sc_ft::sc_uint<6> >>= (sc_ft::sc_uint<4>) 3" is  sc_ft::sc_uint<6>
+Type of "sc_ft::sc_uint<6> << (sc_ft::sc_uint<2>) 1" is  sc_ft::sc_uint<9>
+Type of "sc_ft::sc_uint<6> << (sc_ft::sc_uint<4>) 3" is  sc_ft::sc_uint<21>
+Type of "sc_ft::sc_uint<6> <<= (sc_ft::sc_uint<2>) 1" is  sc_ft::sc_uint<6>
+Type of "sc_ft::sc_uint<6> <<= (sc_ft::sc_uint<4>) 3" is  sc_ft::sc_uint<6>
 
 Shifts with ints 
 Type of "sc_ft::sc_uint<6> >> (int) 1" is  sc_ft::sc_uint<6>
