@@ -45,8 +45,8 @@ int main(int argc, char* argv[]) {
   sc_int<5+6> a,b;
   sc_int<5+4> c;
 
-  sc_int<3> s_shift = 1;
-  sc_int<6> s_shift2 = 8;
+  sc_int<2> s_shift = 1;
+  sc_int<4> s_shift2 = 3;
 
   x = y = diff = ls = rs = 0;
 

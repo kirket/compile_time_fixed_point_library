@@ -37,10 +37,10 @@ int main(int argc, char* argv[]) {
   sc_uint<INT_BITS> u_a,u_b;
   sc_uint<INT_BITS-1> u_c;
 
-  sc_int<3> s_shift  = 1;
-  sc_int<6> s_shift2 = 8;
-  sc_uint<3> u_shift = 1;
-  sc_uint<6> u_shift2 = 8;
+  sc_int<2> s_shift  = 1;
+  sc_int<4> s_shift2 = 3;
+  sc_uint<2> u_shift = 1;
+  sc_uint<4> u_shift2 = 3;
   
 
   int status;
