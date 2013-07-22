@@ -42,6 +42,7 @@ namespace sc_ft {
 			else   *val_ptr &= ~(a << index);
 			return *this;
 		}
+		operator bool() const { return(val); }
 		operator int8_t() const { return((int8_t)val); }
 		operator int16_t() const { return((int16_t)val); }
 		operator int32_t() const { return((int32_t)val); }
