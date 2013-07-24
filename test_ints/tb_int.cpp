@@ -153,9 +153,13 @@ int main(int argc, char* argv[]) {
   t_one /= 4.0;
   cout << " / 4.0 = " << t_one  << "\n";
 
+  cout << "one = " << one << "\n";
   ASSERT( 3.0 == (one += two) );
+  cout << "one = " << one << "\n";
   ASSERT( -2.0 == (one -= 5));
+  cout << "one = " << one << "\n";
   ASSERT( 8.0 == (one += 10));
+  cout << "one = " << one << "\n";
   ASSERT( 16.0 == (one *= two) );
   ASSERT( 4.0 == (one /= 4) );
 
