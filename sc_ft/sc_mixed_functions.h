@@ -242,7 +242,19 @@ template <int TOTAL_BITS_, int INT_BITS_, int TOTAL_BITS_1, int INT_BITS_1, sc_q
 	return (tmpa.val == tmpb.val);
 }
 template <int TOTAL_BITS_, int INT_BITS_, int TOTAL_BITS_1, int INT_BITS_1, sc_q_mode QMODE, sc_q_mode QMODE1, sc_o_mode OMODE, sc_o_mode OMODE1> 
+	bool operator ==(const sc_ufixed<TOTAL_BITS_1,INT_BITS_1,QMODE1,OMODE1>& b, const sc_fixed<TOTAL_BITS_,INT_BITS_,QMODE,OMODE>& a) {
+    sc_fixed<Template_Max_Total_Bits<TOTAL_BITS_,INT_BITS_,TOTAL_BITS_1,INT_BITS_1>::maxval+2,Template_Max<INT_BITS_,INT_BITS_1>::maxval+2,QMODE,OMODE> tmpa(a);
+	sc_fixed<Template_Max_Total_Bits<TOTAL_BITS_,INT_BITS_,TOTAL_BITS_1,INT_BITS_1>::maxval+2,Template_Max<INT_BITS_,INT_BITS_1>::maxval+2,QMODE,OMODE> tmpb(b);
+	return (tmpa.val == tmpb.val);
+}
+template <int TOTAL_BITS_, int INT_BITS_, int TOTAL_BITS_1, int INT_BITS_1, sc_q_mode QMODE, sc_q_mode QMODE1, sc_o_mode OMODE, sc_o_mode OMODE1> 
 	bool operator <(const sc_fixed<TOTAL_BITS_,INT_BITS_,QMODE,OMODE>& a, const sc_ufixed<TOTAL_BITS_1,INT_BITS_1,QMODE1,OMODE1>& b) {
+	    sc_fixed<Template_Max_Total_Bits<TOTAL_BITS_,INT_BITS_,TOTAL_BITS_1,INT_BITS_1>::maxval+2,Template_Max<INT_BITS_,INT_BITS_1>::maxval+2,QMODE,OMODE> tmpa(a);
+	    sc_fixed<Template_Max_Total_Bits<TOTAL_BITS_,INT_BITS_,TOTAL_BITS_1,INT_BITS_1>::maxval+2,Template_Max<INT_BITS_,INT_BITS_1>::maxval+2,QMODE,OMODE> tmpb(b);
+		return (tmpa.val < tmpb.val);
+}
+template <int TOTAL_BITS_, int INT_BITS_, int TOTAL_BITS_1, int INT_BITS_1, sc_q_mode QMODE, sc_q_mode QMODE1, sc_o_mode OMODE, sc_o_mode OMODE1> 
+	bool operator <(const sc_ufixed<TOTAL_BITS_,INT_BITS_,QMODE,OMODE>& a, const sc_fixed<TOTAL_BITS_1,INT_BITS_1,QMODE1,OMODE1>& b) {
 	    sc_fixed<Template_Max_Total_Bits<TOTAL_BITS_,INT_BITS_,TOTAL_BITS_1,INT_BITS_1>::maxval+2,Template_Max<INT_BITS_,INT_BITS_1>::maxval+2,QMODE,OMODE> tmpa(a);
 	    sc_fixed<Template_Max_Total_Bits<TOTAL_BITS_,INT_BITS_,TOTAL_BITS_1,INT_BITS_1>::maxval+2,Template_Max<INT_BITS_,INT_BITS_1>::maxval+2,QMODE,OMODE> tmpb(b);
 		return (tmpa.val < tmpb.val);
@@ -254,8 +266,21 @@ template <int TOTAL_BITS_, int INT_BITS_, int TOTAL_BITS_1, int INT_BITS_1, sc_q
 	    sc_fixed<Template_Max_Total_Bits<TOTAL_BITS_,INT_BITS_,TOTAL_BITS_1,INT_BITS_1>::maxval+2,Template_Max<INT_BITS_,INT_BITS_1>::maxval+2,QMODE,OMODE> tmpb(b);
 		return !(tmpa.val == tmpb.val);
 }
+// re-use previous operators
+template <int TOTAL_BITS_, int INT_BITS_, int TOTAL_BITS_1, int INT_BITS_1, sc_q_mode QMODE, sc_q_mode QMODE1, sc_o_mode OMODE, sc_o_mode OMODE1> 
+	bool operator !=(const sc_ufixed<TOTAL_BITS_,INT_BITS_,QMODE,OMODE>& a, const sc_fixed<TOTAL_BITS_1,INT_BITS_1,QMODE1,OMODE1>& b) {
+	    sc_fixed<Template_Max_Total_Bits<TOTAL_BITS_,INT_BITS_,TOTAL_BITS_1,INT_BITS_1>::maxval+2,Template_Max<INT_BITS_,INT_BITS_1>::maxval+2,QMODE,OMODE> tmpa(a);
+	    sc_fixed<Template_Max_Total_Bits<TOTAL_BITS_,INT_BITS_,TOTAL_BITS_1,INT_BITS_1>::maxval+2,Template_Max<INT_BITS_,INT_BITS_1>::maxval+2,QMODE,OMODE> tmpb(b);
+		return !(tmpa.val == tmpb.val);
+}
 template <int TOTAL_BITS_, int INT_BITS_, int TOTAL_BITS_1, int INT_BITS_1, sc_q_mode QMODE, sc_q_mode QMODE1, sc_o_mode OMODE, sc_o_mode OMODE1> 
 	bool operator >(const sc_fixed<TOTAL_BITS_,INT_BITS_,QMODE,OMODE>& a, const sc_ufixed<TOTAL_BITS_1,INT_BITS_1,QMODE1,OMODE1>& b) {
+	    sc_fixed<Template_Max_Total_Bits<TOTAL_BITS_,INT_BITS_,TOTAL_BITS_1,INT_BITS_1>::maxval+2,Template_Max<INT_BITS_,INT_BITS_1>::maxval+2,QMODE,OMODE> tmpa(a);
+	    sc_fixed<Template_Max_Total_Bits<TOTAL_BITS_,INT_BITS_,TOTAL_BITS_1,INT_BITS_1>::maxval+2,Template_Max<INT_BITS_,INT_BITS_1>::maxval+2,QMODE,OMODE> tmpb(b);
+		return (tmpb.val < tmpa.val);
+}
+template <int TOTAL_BITS_, int INT_BITS_, int TOTAL_BITS_1, int INT_BITS_1, sc_q_mode QMODE, sc_q_mode QMODE1, sc_o_mode OMODE, sc_o_mode OMODE1> 
+	bool operator >(const sc_ufixed<TOTAL_BITS_,INT_BITS_,QMODE,OMODE>& a, const sc_fixed<TOTAL_BITS_1,INT_BITS_1,QMODE1,OMODE1>& b) {
 	    sc_fixed<Template_Max_Total_Bits<TOTAL_BITS_,INT_BITS_,TOTAL_BITS_1,INT_BITS_1>::maxval+2,Template_Max<INT_BITS_,INT_BITS_1>::maxval+2,QMODE,OMODE> tmpa(a);
 	    sc_fixed<Template_Max_Total_Bits<TOTAL_BITS_,INT_BITS_,TOTAL_BITS_1,INT_BITS_1>::maxval+2,Template_Max<INT_BITS_,INT_BITS_1>::maxval+2,QMODE,OMODE> tmpb(b);
 		return (tmpb.val < tmpa.val);
@@ -267,7 +292,19 @@ template <int TOTAL_BITS_, int INT_BITS_, int TOTAL_BITS_1, int INT_BITS_1, sc_q
 		return !(tmpb.val < tmpa.val);
 }
 template <int TOTAL_BITS_, int INT_BITS_, int TOTAL_BITS_1, int INT_BITS_1, sc_q_mode QMODE, sc_q_mode QMODE1, sc_o_mode OMODE, sc_o_mode OMODE1> 
+	bool operator <=(const sc_ufixed<TOTAL_BITS_,INT_BITS_,QMODE,OMODE>& a, const sc_fixed<TOTAL_BITS_1,INT_BITS_1,QMODE1,OMODE1>& b) {
+	    sc_fixed<Template_Max_Total_Bits<TOTAL_BITS_,INT_BITS_,TOTAL_BITS_1,INT_BITS_1>::maxval+2,Template_Max<INT_BITS_,INT_BITS_1>::maxval+2,QMODE,OMODE> tmpa(a);
+	    sc_fixed<Template_Max_Total_Bits<TOTAL_BITS_,INT_BITS_,TOTAL_BITS_1,INT_BITS_1>::maxval+2,Template_Max<INT_BITS_,INT_BITS_1>::maxval+2,QMODE,OMODE> tmpb(b);
+		return !(tmpb.val < tmpa.val);
+}
+template <int TOTAL_BITS_, int INT_BITS_, int TOTAL_BITS_1, int INT_BITS_1, sc_q_mode QMODE, sc_q_mode QMODE1, sc_o_mode OMODE, sc_o_mode OMODE1> 
 	bool operator >=(const sc_fixed<TOTAL_BITS_,INT_BITS_,QMODE,OMODE>& a, const sc_ufixed<TOTAL_BITS_1,INT_BITS_1,QMODE1,OMODE1>& b) {
+	    sc_fixed<Template_Max_Total_Bits<TOTAL_BITS_,INT_BITS_,TOTAL_BITS_1,INT_BITS_1>::maxval+2,Template_Max<INT_BITS_,INT_BITS_1>::maxval+2,QMODE,OMODE> tmpa(a);
+	    sc_fixed<Template_Max_Total_Bits<TOTAL_BITS_,INT_BITS_,TOTAL_BITS_1,INT_BITS_1>::maxval+2,Template_Max<INT_BITS_,INT_BITS_1>::maxval+2,QMODE,OMODE> tmpb(b);
+		return !(tmpa.val < tmpb.val);
+}
+template <int TOTAL_BITS_, int INT_BITS_, int TOTAL_BITS_1, int INT_BITS_1, sc_q_mode QMODE, sc_q_mode QMODE1, sc_o_mode OMODE, sc_o_mode OMODE1> 
+	bool operator >=(const sc_ufixed<TOTAL_BITS_,INT_BITS_,QMODE,OMODE>& a, const sc_fixed<TOTAL_BITS_1,INT_BITS_1,QMODE1,OMODE1>& b) {
 	    sc_fixed<Template_Max_Total_Bits<TOTAL_BITS_,INT_BITS_,TOTAL_BITS_1,INT_BITS_1>::maxval+2,Template_Max<INT_BITS_,INT_BITS_1>::maxval+2,QMODE,OMODE> tmpa(a);
 	    sc_fixed<Template_Max_Total_Bits<TOTAL_BITS_,INT_BITS_,TOTAL_BITS_1,INT_BITS_1>::maxval+2,Template_Max<INT_BITS_,INT_BITS_1>::maxval+2,QMODE,OMODE> tmpb(b);
 		return !(tmpa.val < tmpb.val);
