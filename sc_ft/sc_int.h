@@ -46,6 +46,7 @@
 #include <sc_ft/sc_uint_bitref.h>
 #include <sc_ft/sc_int_subref.h>
 #include <sc_ft/sc_uint_subref.h>
+
 namespace sc_ft {
 
 	/// A faster version of the older systemc sc_int
@@ -54,8 +55,12 @@ namespace sc_ft {
 		typedef typename int_type_size<NEXT_INT_SIZE<I_>::val>::int_type val_type;
 		typedef int64_t max_val_type;
 		val_type val;
+#ifndef NO_LHS_RANGE
 		sc_int_subref<I_> subref;
 		sc_int_bitref<I_> bitref;
+#endif
+		static const int INTEGER_BITS = I_;
+
 
 
 		public:
@@ -74,8 +79,7 @@ namespace sc_ft {
 		sc_int(const uint16_t& a) : val((int64_t)a) {	}
 		sc_int(const uint32_t& a) : val((int64_t)a) {	}
 		sc_int(const uint64_t& a) : val((int64_t)a) {	}
-		template <int I_1> sc_int(const sc_int_bitref<I_1>& a) : val((int64_t)a.val) {	}
-		template <int I_1> sc_int(const sc_int_subref<I_1>& a) : val((int64_t)a.val) {	}
+
 
 		/// from another sc_int<>
 		template <int I_1> sc_int(const sc_int<I_1>& a) {
@@ -113,6 +117,9 @@ namespace sc_ft {
 			val= a.getVal();
 			return *this;
 		}
+
+	    template <int I_1> sc_int(const sc_int_subref<I_1>& a) : val((int64_t)a.val) {	}
+	    template <int I_1> sc_int(const sc_int_bitref<I_1>& a) : val((int64_t)a.val) {	}
 		template <int I_1> sc_int& 
 			operator =(const sc_int_subref<I_1>& a) {	
 			val= a.val;
@@ -133,6 +140,9 @@ namespace sc_ft {
 			val= a.val;
 			return *this;
 		}
+
+#ifndef NO_LHS_RANGE
+	  // Sub/bitref LHS Stuff
 		sc_int_bitref<I_>& operator[](uint64_t i) {
 			bool tmp = (val >> i) & 0x1;
 			bitref.val = tmp;
@@ -142,7 +152,7 @@ namespace sc_ft {
 		}
 		sc_int_subref<I_>& range(int lhs, int rhs) {
 			uint64_t tmp = (val >> rhs) & ((1 << (lhs-rhs+1)) - 1);
-						subref.val = tmp;
+			subref.val = tmp;
 			subref.lhs = lhs;
 			subref.rhs = rhs;
 			subref.val_ptr = this;
@@ -152,7 +162,9 @@ namespace sc_ft {
 			subref.val = val;
 			return subref;
 		}
-		
+#endif
+
+	
 		/// assignment operator from another size, use copy constructor, then copy val;
 		template <int I_1> sc_int<I_>& operator =(const sc_int<I_1>& a) {
 			sc_int<I_> temp(a);

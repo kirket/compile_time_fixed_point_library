@@ -58,6 +58,9 @@ class sc_ufixed {
   /// for sc_int this is defined and is a bit-reference, just pass it on
   typedef sc_int_bitref<TOTAL_BITS_> bitref_type; 
   val_type val;
+  static const int TOTAL_BITS = TOTAL_BITS_;
+  static const int INTEGER_BITS = INT_BITS_;
+
 
  public:
 	// constructors
@@ -153,10 +156,12 @@ class sc_ufixed {
         return *this;
     }
 
+#ifndef NO_LHS_RANGE
 	// for sc_int val_type val.range is sc_int_subref type
 	subref_type& range(const int lhs, const int rhs) {
-		return val.range(lhs,rhs);
+	   return val.range(lhs,rhs);
 	}
+#endif
 
 	// assignment operator from another size, use copy constructor, then copy val;
 	template <int TOTAL_BITS_1, int INT_BITS_1, sc_q_mode SC_Q_MODE_1, sc_o_mode SC_O_MODE_1>

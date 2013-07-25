@@ -46,6 +46,7 @@
 #include <sc_ft/sc_uint_bitref.h>
 #include <sc_ft/sc_int_subref.h>
 #include <sc_ft/sc_uint_subref.h>
+
 namespace sc_ft {
 
 	/// A faster version of the older systemc sc_uint
@@ -54,8 +55,11 @@ namespace sc_ft {
 		typedef typename int_type_size<NEXT_INT_SIZE<I_>::val>::uint_type val_type;
 		typedef uint64_t max_val_type;
 		val_type val;
+#ifndef NO_LHS_RANGE
 		sc_uint_subref<I_> subref;
 		sc_uint_bitref<I_> bitref;
+#endif
+		static const int INTEGER_BITS = I_;
 
 
 
@@ -75,8 +79,7 @@ namespace sc_ft {
 		sc_uint(const uint16_t& a) { val = a & UMask<I_>::val; }
 		sc_uint(const uint32_t& a) { val = a & UMask<I_>::val; }
 		sc_uint(const uint64_t& a) { val = a & UMask<I_>::val; }
-		template <int I_1> sc_uint(const sc_uint_bitref<I_1>& a) : val((int64_t)a.val) {	}
-		template <int I_1> sc_uint(const sc_uint_subref<I_1>& a) : val((int64_t)a.val) {	}
+
 
 		/// from another sc_uint<>
 		template <int I_1> sc_uint(const sc_uint<I_1>& a) {
@@ -114,6 +117,9 @@ namespace sc_ft {
 			val= a.getVal();
 			return *this;
 		}
+
+	    template <int I_1> sc_uint(const sc_uint_subref<I_1>& a) : val((int64_t)a.val) {	}
+	    template <int I_1> sc_uint(const sc_uint_bitref<I_1>& a) : val((int64_t)a.val) {	}
 		template <int I_1> sc_uint& 
 			operator =(const sc_uint_subref<I_1>& a) {	
 			val= a.val;
@@ -134,6 +140,9 @@ namespace sc_ft {
 			val= a.val;
 			return *this;
 		}
+
+#ifndef NO_LHS_RANGE
+	  // Sub/bitref LHS Stuff
 		sc_uint_bitref<I_>& operator[](uint64_t i) {
 			bool tmp = (val >> i) & 0x1;
 			bitref.val = tmp;
@@ -143,7 +152,7 @@ namespace sc_ft {
 		}
 		sc_uint_subref<I_>& range(int lhs, int rhs) {
 			uint64_t tmp = (val >> rhs) & ((1 << (lhs-rhs+1)) - 1);
-						subref.val = tmp;
+			subref.val = tmp;
 			subref.lhs = lhs;
 			subref.rhs = rhs;
 			subref.val_ptr = this;
@@ -153,7 +162,9 @@ namespace sc_ft {
 			subref.val = val;
 			return subref;
 		}
-		
+#endif
+
+	
 		/// assignment operator from another size, use copy constructor, then copy val;
 		template <int I_1> sc_uint<I_>& operator =(const sc_uint<I_1>& a) {
 			sc_uint<I_> temp(a);
