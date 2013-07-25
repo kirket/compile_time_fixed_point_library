@@ -26,6 +26,11 @@ namespace sc_ft {
 
 	/// Template functions to use in Compile-time Template Parameters : Absolute Value
 	template <int A_> struct Abs_Func { enum { val = (A_ < 0) ? -A_ : A_ };	};
+
+	// Template functions to compute Masks for Signed/Unsigned bits
+	template <int A_> struct SMask { enum { val = (1 << (A_-1))-1};};
+	template <int A_> struct UMask { enum { val = (1 << A_)-1};};
+
 	/// Max compile time calculation
 	template <int A_, int B_> struct Template_Max { enum { maxval = (A_ > B_) ? A_ : B_ };	};
 	/// Max Total Bits for sc_fixed based on Max of two different sc_fixed 

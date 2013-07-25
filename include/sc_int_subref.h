@@ -29,21 +29,33 @@ namespace sc_ft {
 		int lhs;
 		int rhs;
 		sc_int<I_> *val_ptr;
-		// tbd
-		template <int W> sc_int_subref& operator = (const sc_uint<W>& a) {
-			val = a.to_int();  return *this;}
-		template <int W> sc_int_subref& operator = (const sc_int<W>& a) {
-			val = a.to_int();  return *this;}
-
 		sc_int_subref& operator = (const sc_int_subref& a) {
 			val = (a.val << rhs);
-			//std::cout << "Doing subref assign " << a.val << " -> this " << val << "\n";
 			*val_ptr = val; 
-			//std::cout << "Setting val in base \n";
+			return *this;
+		}
+		template <int W> sc_int_subref& operator = (const sc_uint<W>& a) {
+			uint64_t prev_val = val_ptr->val;
+			uint64_t mask = ((1 << ((lhs - rhs) + 1)) - 1) << rhs;
+			prev_val &= ~mask;
+			val = ((a.val << rhs) & mask) | prev_val;
+			*val_ptr = val; 
+			return *this;
+		}
+		template <int W> sc_int_subref& operator = (const sc_int<W>& a) {
+			uint64_t prev_val = val_ptr->val;
+			uint64_t mask = ((1 << ((lhs - rhs) + 1)) - 1) << rhs;
+			prev_val &= ~mask;
+			val = ((a.val << rhs) & mask) | prev_val;
+			*val_ptr = val; 
 			return *this;
 		}
 		sc_int_subref& operator = (const int& a) {
-			val = a;
+			uint64_t prev_val = val_ptr->val;
+			uint64_t mask = ((1 << ((lhs - rhs) + 1)) - 1) << rhs;
+			prev_val &= ~mask;
+			val = ((a << rhs) & mask) | prev_val;
+			*val_ptr = val; 
 			return *this;
 		}
 		operator int8_t() const { return((int8_t)val); }

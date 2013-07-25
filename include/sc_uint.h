@@ -58,6 +58,7 @@ namespace sc_ft {
 		sc_uint_bitref<I_> bitref;
 
 
+
 		public:
 		/// constructors
 		sc_uint() : val(0) {	}
@@ -66,14 +67,14 @@ namespace sc_ft {
 		sc_uint(const sc_uint& a) : val(a.getVal()) {	}
 		sc_uint(const double& a) : val((int64_t)a) {	}
 		// Constructors (generated)
-		sc_uint(const int8_t& a) : val((int64_t)a) {	}
-		sc_uint(const int16_t& a) : val((int64_t)a) {	}
-		sc_uint(const int32_t& a) : val((int64_t)a) {	}
-		sc_uint(const int64_t& a) : val((int64_t)a) {	}
-		sc_uint(const uint8_t& a) : val((int64_t)a) {	}
-		sc_uint(const uint16_t& a) : val((int64_t)a) {	}
-		sc_uint(const uint32_t& a) : val((int64_t)a) {	}
-		sc_uint(const uint64_t& a) : val((int64_t)a) {	}
+		sc_uint(const int8_t& a) { val = a & UMask<I_>::val; }
+		sc_uint(const int16_t& a) { val = a & UMask<I_>::val; }
+		sc_uint(const int32_t& a) { val = a & UMask<I_>::val; }
+		sc_uint(const int64_t& a) { val = a & UMask<I_>::val; }
+		sc_uint(const uint8_t& a) { val = a & UMask<I_>::val; }
+		sc_uint(const uint16_t& a) { val = a & UMask<I_>::val; }
+		sc_uint(const uint32_t& a) { val = a & UMask<I_>::val; }
+		sc_uint(const uint64_t& a) { val = a & UMask<I_>::val; }
 		template <int I_1> sc_uint(const sc_uint_bitref<I_1>& a) : val((int64_t)a.val) {	}
 		template <int I_1> sc_uint(const sc_uint_subref<I_1>& a) : val((int64_t)a.val) {	}
 
