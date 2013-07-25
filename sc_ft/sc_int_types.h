@@ -21,11 +21,11 @@ namespace sc_ft {
 	enum sc_numrep {SC_NOBASE,SC_DEC,SC_BIN,SC_BIN_US,SC_BIN_SM,SC_OCT,SC_OCT_US,SC_OUT_SM,SC_HEX,SC_HEX_US,SC_HEX_SM,SC_CSD};
 }
 
-#include <sc_int.h>
-#include <sc_uint.h>
-#include <sc_int_functions.h>
-#include <sc_uint_functions.h>
-#include <sc_int_mixed_functions.h>
+#include <sc_ft/sc_int.h>
+#include <sc_ft/sc_uint.h>
+#include <sc_ft/sc_int_functions.h>
+#include <sc_ft/sc_uint_functions.h>
+#include <sc_ft/sc_int_mixed_functions.h>
 
 
 #endif
