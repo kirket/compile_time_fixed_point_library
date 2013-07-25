@@ -175,6 +175,23 @@ class sc_ufixed {
 		val = temp.getVal();
 		return *this;
 	}
+	// assignment operator from sc_int
+	template <int W_1>
+	sc_ufixed<TOTAL_BITS_,INT_BITS_,SC_Q_MODE_,SC_O_MODE_>& operator =(const sc_int<W_1>& a) {
+		// saturates
+		val = sc_saturate_class_function<TOTAL_BITS_,SC_O_MODE_>::saturate(
+																		   max_int_type(a.to_int()));
+		return *this;
+	}
+	// assignment operator from sc_int
+	template <int W_1>
+	sc_ufixed<TOTAL_BITS_,INT_BITS_,SC_Q_MODE_,SC_O_MODE_>& operator =(const sc_uint<W_1>& a) {
+		// saturates
+		val = sc_saturate_class_function<TOTAL_BITS_,SC_O_MODE_>::saturate(
+																		   max_int_type(a.to_int()));
+		return *this;
+	}
+
 
 	// sign operator - return sc_fixed
     sc_fixed<TOTAL_BITS_+1,INT_BITS_+1> operator -() const {
