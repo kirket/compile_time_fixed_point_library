@@ -6,6 +6,7 @@
 #include <sstream>
 #include <string>
 
+#include "noise.h"
 #include "fir.h"
 #include <sys/time.h>
 
@@ -13,7 +14,7 @@
 #define SC_EXCLUDE_FIXED_OTHER
 #include "systemc.h"
 
-//#define NO_LHS_RANGE
+#define NO_LHS_RANGE
 
 #include <sc_ft/sc_fixed.h>
 
@@ -29,7 +30,7 @@ double get_time()
 
 
 int sc_main(int argc, char* argv[]) {
-  const long LOOPS = ((long)1 << 20);
+  const long LOOPS = ((long)1 << 21);
   const int FIR_SIZE = 64;
   const int MODSIZE = 64;
   const int INT_BITS =  8;
@@ -45,7 +46,7 @@ int sc_main(int argc, char* argv[]) {
   fir<sc_new>   MSC_FIR(FIR_SIZE);
 
   double phase = 3.14*1.0/9.0;
-  //  noise AWGN;
+  noise AWGN;
 
   double ref;
   sc_ref sc;
@@ -71,18 +72,12 @@ int sc_main(int argc, char* argv[]) {
   sc_ref sc_i[MODSIZE];
 
   for (i=0;i<MODSIZE;i++) {
-	tmp    = 0; //AWGN.gauss();
+	tmp    = AWGN.gauss();
 	expj   = cos(arg);
 	arg += phase;
 	ref_i[i]    = expj+NOISE_GAIN*tmp;
 	msc_i[i]    = ref_i[i];
 	sc_i[i]     = ref_i[i];
-#ifdef TEST
-	std::cout << "ref_i..." << i << " "
-			  << ref_i[i] << " "
-			  << msc_i[i] << " "
-			  << sc_i[i] << "\n";
-#endif
   }
 
   double ref_time=1;
@@ -101,16 +96,7 @@ int sc_main(int argc, char* argv[]) {
 	  }
 
 	}
-  
 	double time_end = get_time();
-
-#ifdef TEST
-	switch (sel) {
-	case 0: std::cout << ref << "\n"; break;
-	case 1: std::cout << sc  << "\n"; break;
-	case 2: std::cout << msc << "\n"; break;
-	}
-#endif
 
 	switch (sel) {
 	case 0: std::cout << "double   "; break;
@@ -121,7 +107,6 @@ int sc_main(int argc, char* argv[]) {
 	std::cout << " Time elapsed = " << time_end - time_start << " ";
 
 	if (sel==0) ref_time = (time_end-time_start);
-
 	std::cout << " Factor = " << (time_end - time_start)/ref_time << "\n";
 	
   }

@@ -32,7 +32,7 @@ $ENV{SYSTEMC_HOME}/include/sysc/datatypes
 $ENV{SYSTEMC_HOME}/include/sysc/datatypes/sc_ft
 )
 
-add_executable(tst main.cpp )
+add_executable(tst main.cpp noise.cpp)
 target_link_libraries(tst systemc pthread)
 
 

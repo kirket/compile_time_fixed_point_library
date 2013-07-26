@@ -40,15 +40,17 @@ This is with GCC 4.2.1
         Copyright (c) 1996-2012 by all Contributors,
         ALL RIGHTS RESERVED
 
-        Starting Loops with Loops = 1048576
-        double    Time elapsed = 0.057703  Factor = 1
-        sc_dt     Time elapsed = 19.2423  Factor = 333.47
-        sc_ft     Time elapsed = 0.0629501  Factor = 1.09093
+Starting Loops with Loops = 2097152
+
+With "Range Support"
+
+       double    Time elapsed = 0.118704  Factor = 1
+       sc_dt     Time elapsed = 38.9866  Factor = 328.436
+       sc_ft     Time elapsed = 0.411665  Factor = 3.468
 
 
-This is with GCC 4.7.0 (C++11)
+Without "Range Support"
 
-        double    Time elapsed = 0.0416451  Factor = 1
-        sc_dt     Time elapsed = 18.8252  Factor = 452.039
-        sc_ft     Time elapsed = 0.061903  Factor = 1.48644
-
+       double    Time elapsed = 0.117503  Factor = 1
+       sc_dt     Time elapsed = 37.3403  Factor = 317.782
+       sc_ft     Time elapsed = 0.0962961  Factor = 0.819519
