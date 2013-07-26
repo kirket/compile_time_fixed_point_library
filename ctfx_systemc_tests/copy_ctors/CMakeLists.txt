@@ -32,8 +32,12 @@ $ENV{SYSTEMC_HOME}/include/sysc/datatypes
 $ENV{SYSTEMC_HOME}/include/sysc/datatypes/sc_ft
 )
 
-add_executable(tst main.cpp range_fx.cpp )
-target_link_libraries(tst systemc pthread)
+set(SRCS
+copy_ctors.cpp
+)
+
+add_executable(tst ${SRCS})
+target_link_libraries(tst)
 
 
 
