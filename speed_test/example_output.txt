@@ -1,0 +1,4 @@
+Starting Loops with Loops = 1048576
+double    Time elapsed = 0.0405622  Factor = 1
+sc_dt     Time elapsed = 19.0534  Factor = 469.735
+sc_ft     Time elapsed = 0.0618038  Factor = 1.52368
