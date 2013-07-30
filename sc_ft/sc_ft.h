@@ -15,8 +15,8 @@
 #ifndef SYSTEMC_SC_FT_ALL_H_
 #define SYSTEMC_SC_FT_ALL_H_
 
-#include <sc_fixed.h>
-#include <sc_ufixed.h>
-#include <sc_mixed_functions.h>
+#include <sc_ft/sc_fixed.h>
+#include <sc_ft/sc_ufixed.h>
+#include <sc_ft/sc_mixed_functions.h>
 
 #endif
