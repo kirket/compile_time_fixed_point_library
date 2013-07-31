@@ -43,7 +43,7 @@ set(EXECUTABLE_OUTPUT_PATH ..)
 set(LIBRARY_OUTPUT_PATH ..)
 
 include_directories (
-..
+../..
 $ENV{SYSTEMC_HOME}/include
 ${Boost_INCLUDE_DIRS}
 )
