@@ -25,7 +25,6 @@ set(LIBRARY_OUTPUT_PATH ..)
 
 include_directories (
 ..
-../sc_ft
 )
 
 add_executable(tb_int tb_int.cpp)

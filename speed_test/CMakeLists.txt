@@ -29,7 +29,6 @@ set(LIBRARY_OUTPUT_PATH ..)
 include_directories (
 $ENV{SYSTEMC_HOME}/include
 $ENV{SYSTEMC_HOME}/include/sysc/datatypes
-$ENV{SYSTEMC_HOME}/include/sysc/datatypes/sc_ft
 )
 
 add_executable(tst main.cpp noise.cpp)

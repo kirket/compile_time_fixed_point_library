@@ -19,7 +19,7 @@
 #include <cstdlib>
 #include <cassert>
 
-#include <sc_int_types.h>
+#include <sc_ft/sc_int_types.h>
 #include "get_type_info.h"
 
 using namespace std;
