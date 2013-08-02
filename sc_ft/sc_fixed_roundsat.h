@@ -95,9 +95,9 @@ namespace sc_ft {
 							   const sc_fixed<TOTAL_BITS_1,INT_BITS_1,SC_Q_MODE_1,SC_O_MODE_1>& a) {
 				typename int_size_needed<INT_BITS_1+Template_Max<TOTAL_BITS_1-INT_BITS_1,FRAC_BITS_>::maxval>::int_type x;
 				if (TOTAL_BITS_1-INT_BITS_1>FRAC_BITS_) {
-        			x = (a.getVal() >> Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_>::val);
+        			x = (a.getVal() >> (int)Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_>::val);
 				} else {
-		        	x = (a.getVal() << Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_>::val);
+		        	x = (a.getVal() << (int)Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_>::val);
 				}
 				return (x);
 			}
@@ -107,15 +107,15 @@ namespace sc_ft {
 							   const sc_ufixed<TOTAL_BITS_1,INT_BITS_1,SC_Q_MODE_1,SC_O_MODE_1>& a) {
 				typename int_size_needed<INT_BITS_1+Template_Max<TOTAL_BITS_1-INT_BITS_1,FRAC_BITS_>::maxval>::int_type x;
 				if (TOTAL_BITS_1-INT_BITS_1>FRAC_BITS_) {
-					x = (a.getVal() >> Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_>::val);
+					x = (a.getVal() >> (int)Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_>::val);
 				} else {
-					x = (a.getVal() << Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_>::val);
+					x = (a.getVal() << (int)Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_>::val);
 				}
 				return (x);
 			}
 		}; // end of class 
 		/// Specialize for SC_RND shift return type one extra bit to avoid overflow,
-		template <> template<int FRAC_BITS_> 
+		template<int FRAC_BITS_> 
 			class sc_shift_class_function<FRAC_BITS_,SC_RND> {
 		public:
 			/// Specialized shift function for SC_RND
@@ -125,11 +125,11 @@ namespace sc_ft {
 				shift_function(const sc_fixed<TOTAL_BITS_1,INT_BITS_1,SC_Q_MODE_1,SC_O_MODE_1>& a) {
 				typename int_size_needed<INT_BITS_1+Template_Max<TOTAL_BITS_1-INT_BITS_1,FRAC_BITS_>::maxval>::int_type x;
 				if (TOTAL_BITS_1-INT_BITS_1>FRAC_BITS_) {
-					x = (a.getVal() >> Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_>::val);
+					x = (a.getVal() >> (int)Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_>::val);
 					if ((TOTAL_BITS_1-INT_BITS_1)>FRAC_BITS_) 
-					x += (a.getVal() >> Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_-1>::val) & 0x1;
+						x += (a.getVal() >> (int)Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_-1>::val) & 0x1;
 				} else {
-					x = (a.getVal() << Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_>::val);
+					x = (a.getVal() << (int)Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_>::val);
 				}
 				return (x);
 			}
@@ -139,17 +139,17 @@ namespace sc_ft {
 				shift_function(const sc_ufixed<TOTAL_BITS_1,INT_BITS_1,SC_Q_MODE_1,SC_O_MODE_1>& a) {
 				typename int_size_needed<INT_BITS_1+Template_Max<TOTAL_BITS_1-INT_BITS_1,FRAC_BITS_>::maxval>::int_type x;
 				if (TOTAL_BITS_1-INT_BITS_1>FRAC_BITS_) {
-					x = (a.getVal() >> Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_>::val);
+					x = (a.getVal() >> (int)Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_>::val);
 					if ((TOTAL_BITS_1-INT_BITS_1)>FRAC_BITS_) 
-					x += (a.getVal() >> Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_-1>::val) & 0x1;
+					x += (a.getVal() >> (int)Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_-1>::val) & 0x1;
 				} else {
-					x = (a.getVal() << Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_>::val);
+					x = (a.getVal() << (int)Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_>::val);
 				}
 				return (x);
 			}
 		};	
 		/// Specialize for SC_TRN shift return type one extra bit to avoid overflow,
-		template <> template<int FRAC_BITS_> 
+		template<int FRAC_BITS_> 
 			class sc_shift_class_function<FRAC_BITS_,SC_TRN> {
 		public:
 			// Specialized shift function for SC_TRN
@@ -159,9 +159,9 @@ namespace sc_ft {
 				shift_function(const sc_fixed<TOTAL_BITS_1,INT_BITS_1,SC_Q_MODE_1,SC_O_MODE_1>& a) {
 				typename int_size_needed<INT_BITS_1+Template_Max<TOTAL_BITS_1-INT_BITS_1,FRAC_BITS_>::maxval>::int_type x;
 				if (TOTAL_BITS_1-INT_BITS_1>FRAC_BITS_) {
-					x = (a.getVal() >> Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_>::val);
+					x = (a.getVal() >> (int)Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_>::val);
 				} else {
-					x = (a.getVal() << Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_>::val);
+					x = (a.getVal() << (int)Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_>::val);
 				}
 				//				std::cout << " Shift_func " << a.getVal() << " -> " << (int)x << "\n";
 				return (x);
@@ -172,9 +172,9 @@ namespace sc_ft {
 				shift_function(const sc_ufixed<TOTAL_BITS_1,INT_BITS_1,SC_Q_MODE_1,SC_O_MODE_1>& a) {
 				typename int_size_needed<INT_BITS_1+Template_Max<TOTAL_BITS_1-INT_BITS_1,FRAC_BITS_>::maxval>::int_type x;
 				if (TOTAL_BITS_1-INT_BITS_1>FRAC_BITS_) {
-					x = (a.getVal() >> Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_>::val);
+					x = (a.getVal() >> (int)Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_>::val);
 				} else {
-					x = (a.getVal() << Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_>::val);
+					x = (a.getVal() << (int)Abs_Func<TOTAL_BITS_1-INT_BITS_1-FRAC_BITS_>::val);
 				}
 				return (x);
 			}
@@ -218,7 +218,7 @@ namespace sc_ft {
 		}; // end of class 
 
 		/// Specialized for SC_SAT
-		template <> template<int TOTAL_BITS_> 
+		template<int TOTAL_BITS_> 
 				class sc_saturate_class_function<TOTAL_BITS_,SC_SAT> {
 			public:
 				/// Specialized Saturate function for SC_SAT
