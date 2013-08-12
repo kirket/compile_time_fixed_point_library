@@ -16,6 +16,6 @@ clean:
 run: tb
 	tb_SC_TRN_SC_SAT
 	tb_SC_RND_SC_SAT
-#	tb_SC_TRN_SC_WRAP
-#	tb_SC_RND_SC_WRAP
+	tb_SC_TRN_SC_WRAP
+	tb_SC_RND_SC_WRAP
 
