@@ -19,7 +19,7 @@ that are
 
 Initial support will only be for
 
-- Saturation modes : SC\_WRAP, SC_SAT
+- Saturation modes : SC\_WRAP, SC_SAT, SC_SAT_SYM
 and
 - Rounding modes : SC\_RND, SC_TRN
 

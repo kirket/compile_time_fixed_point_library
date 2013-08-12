@@ -293,6 +293,52 @@ namespace @(Namespace) {
 					return(x);
 				}
 		};	
+		/// Specialized for SC_SAT_SYM
+		template<int TOTAL_BITS_> 
+				class sc_saturate_class_function<TOTAL_BITS_,SC_SAT_SYM> {
+			public:
+				/// Specialized Saturate function for SC_SAT_SYM
+				template <int TOTAL_BITS_1, int INT_BITS_1,
+					sc_q_mode SC_Q_MODE_1, sc_o_mode SC_O_MODE_1>
+					static typename int_size_needed<TOTAL_BITS_>::int_type
+					saturate_function(const @(Class)<TOTAL_BITS_1,INT_BITS_1,SC_Q_MODE_1,SC_O_MODE_1>& a) {
+
+					typename int_size_needed<TOTAL_BITS_>::int_type x;
+					x = (a.getVal() > ((max_int_type(1) << (TOTAL_BITS_-1))-1)) ?
+						((max_int_type(1) << (TOTAL_BITS_-1))-1) : 
+						(a.getVal() < ((max_int_type(-1) << (TOTAL_BITS_-1))+1)) ?
+						((max_int_type(-1) << (TOTAL_BITS_-1))+1) : a.getVal();
+					return (x);
+				}
+				/// Specialized Saturate function for SC_SAT_SYM
+				template <int TOTAL_BITS_1, int INT_BITS_1,
+					sc_q_mode SC_Q_MODE_1, sc_o_mode SC_O_MODE_1>
+					static typename int_size_needed<TOTAL_BITS_>::int_type
+					saturate_function(const @(IClass)<TOTAL_BITS_1,INT_BITS_1,SC_Q_MODE_1,SC_O_MODE_1>& a) {
+
+					typename int_size_needed<TOTAL_BITS_>::int_type x;
+					x = (a.getVal() > ((max_int_type(1) << (TOTAL_BITS_))-1)) ?
+						((max_int_type(1) << (TOTAL_BITS_))-1) : a.getVal(); 
+					return (x);
+				}
+				static typename int_size_needed<TOTAL_BITS_>::int_type
+					saturate(const max_int_type& a) {
+					typename int_size_needed<TOTAL_BITS_>::int_type x;
+					x = (a > ((max_int_type(1) << (TOTAL_BITS_-1))-1)) ?
+						((max_int_type(1) << (TOTAL_BITS_-1))-1) : 
+						(a < ((max_int_type(-1) << (TOTAL_BITS_-1))+1)) ?
+						((max_int_type(-1) << (TOTAL_BITS_-1))+1) : a;
+					//					std::cout << "\n saturate_func " << (int)a << " -> " << (int)x << "\n";
+					return(x);
+				}
+				static typename int_size_needed<TOTAL_BITS_>::uint_type
+					usaturate(const max_int_type& a) {
+					typename int_size_needed<TOTAL_BITS_>::uint_type x;
+					x = (a > ((max_int_type(1) << TOTAL_BITS_)-1)) ?
+					((max_int_type(1) << TOTAL_BITS_)-1) : (a<0) ? 0 : a;
+					return(x);
+				}
+		};	
 } // end namespace @(Namespace)
 
 

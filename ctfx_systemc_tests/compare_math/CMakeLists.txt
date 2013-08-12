@@ -48,9 +48,7 @@ $ENV{SYSTEMC_HOME}/include
 ${Boost_INCLUDE_DIRS}
 )
 set(RND_TYPES "SC_TRN" "SC_RND")
-#set(SAT_TYPES "SC_WRAP" "SC_SAT") 
-# for now only SC_SAT works!
-set(SAT_TYPES "SC_SAT")
+set(SAT_TYPES "SC_SAT" "SC_WRAP" "SC_SAT_SYM")
 
 foreach (r ${RND_TYPES})
 	foreach (f ${SAT_TYPES})
